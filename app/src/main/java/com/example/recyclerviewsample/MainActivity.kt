@@ -29,6 +29,24 @@ class MainActivity : AppCompatActivity() {
                 )
             )
         }
+
+        states.add(
+            RecyclerState(
+                RecyclerType.HEADER,
+                dataHeader = DataHeader("Body2")
+            )
+        )
+
+        for (i in 0..10) {
+            states.add(
+                RecyclerState(
+                    RecyclerType.BODY,
+                    dataHeader = null,
+                    dataBody = null,
+                    dataBody2 = DataBody2("Body2")
+                )
+            )
+        }
         val adapter = RecyclerAdapter(this, states)
         val recycler = findViewById<RecyclerView>(R.id.recycler_view)
 

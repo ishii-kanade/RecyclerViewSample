@@ -29,7 +29,11 @@ class RecyclerItemBodyView constructor(
     }
 
     fun update(state: RecyclerState) {
-        textView.text = state.dataBody?.text
+        if (state.dataBody != null) {
+            textView.text = state.dataBody?.text
+        } else {
+            textView.text = state.dataBody2?.text
+        }
         imageView.setImageDrawable(state.dataBody?.image?.let { resources.getDrawable(it) })
     }
 }
