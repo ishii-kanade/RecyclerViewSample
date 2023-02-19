@@ -2,13 +2,23 @@ package com.example.recyclerviewsample
 
 class RecyclerState() {
 
-    constructor(type: RecyclerType, text: String) : this() {
+    constructor(
+        type: RecyclerType,
+        dataHeader: DataHeader? = null,
+        dataBody: DataBody? = null,
+        dataBody2: DataBody2? = null
+    ) : this() {
         this.type = type
-        this.text = text
+        this.dataHeader = dataHeader
+        this.dataBody = dataBody
+        this.dataBody2 = dataBody2
     }
 
     var type: RecyclerType = RecyclerType.BODY
     var text: String = ""
+    var dataHeader: DataHeader? = DataHeader("")
+    var dataBody: DataBody? = DataBody(text = "Sample", image = 0)
+    var dataBody2: DataBody2? = DataBody2(text = "")
 }
 
 enum class RecyclerType(val int: Int) {
@@ -24,10 +34,6 @@ enum class RecyclerType(val int: Int) {
     }
 }
 
-data class DataOne(val text: String, val image: Int)
-data class DataTwo(val text: String)
-
-//sealed class RecyclerDataClass {
-//    data class DataOne(val text: String, val image: Int) : RecyclerDataClass()
-//    data class DataTwo(val text: String) : RecyclerDataClass()
-//}
+data class DataHeader(val text: String)
+data class DataBody(val text: String, val image: Int)
+data class DataBody2(val text: String)

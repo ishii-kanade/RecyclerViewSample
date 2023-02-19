@@ -12,10 +12,22 @@ class MainActivity : AppCompatActivity() {
 
         val states = arrayListOf<RecyclerState>()
 
-        states.add(RecyclerState(RecyclerType.HEADER, "header"))
+        states.add(
+            RecyclerState(
+                RecyclerType.HEADER,
+                dataHeader = DataHeader("Sample")
+            )
+        )
 
         for (i in 0..10) {
-            states.add(RecyclerState(RecyclerType.BODY, "Item $i"))
+            states.add(
+                RecyclerState(
+                    RecyclerType.BODY,
+                    dataHeader = null,
+                    dataBody = DataBody("Test", androidx.appcompat.R.drawable.btn_radio_off_mtrl),
+                    dataBody2 = null
+                )
+            )
         }
         val adapter = RecyclerAdapter(this, states)
         val recycler = findViewById<RecyclerView>(R.id.recycler_view)

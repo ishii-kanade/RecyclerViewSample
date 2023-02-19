@@ -19,13 +19,12 @@ class RecyclerItemHeaderView constructor(
         val rootView =
             LayoutInflater.from(context).inflate(R.layout.recycler_item_header_view, this)
         textView = rootView.findViewById(R.id.recyclerItemSectionText)
-        textView.text = "Header"
         setOnClickListener {
             // クリック処理
         }
     }
 
     fun update(state: RecyclerState) {
-        textView.text = state.text
+        textView.text = state.dataHeader?.text
     }
 }
